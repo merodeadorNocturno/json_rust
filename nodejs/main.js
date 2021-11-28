@@ -1,10 +1,12 @@
-console.time('vsRust');
+console.time('nodejs');
 const myCurrencies = require('../json_files/currencies.json');
 
 const myFilter = () => {
     return myCurrencies
-        .filter(currency => currency.id > 768 && currency.id < 1899);
+        // .filter(currency => currency.id > 76 && currency.id < 1899)
+        .filter(currency => currency.name === "XRP");
 };
 
-myFilter().map(item => console.log(item.name));
-console.timeEnd('vsRust');
+const result = myFilter();
+console.timeEnd('nodejs');
+console.log(`coins ${result[0].name}`);
